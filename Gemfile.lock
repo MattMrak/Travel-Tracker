@@ -118,7 +118,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  activerecord (~> 6.1, >= 6.1.1)
+  activerecord
   bcrypt
   capybara
   corneal
@@ -131,7 +131,7 @@ DEPENDENCIES
   shotgun
   sinatra
   sinatra-activerecord
-  sqlite3 (~> 1.4, >= 1.4.2)
+  sqlite3
   thin
   tux
 
