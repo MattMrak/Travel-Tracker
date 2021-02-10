@@ -17,12 +17,25 @@ class ApplicationController < Sinatra::Base
   helpers do
 
     def logged_in?
-      !!session[:email]
+      !!current_user
     end
 
-    def login(email)
-      # Is the user who they claim to be?
-      session[:email] = email
+    def login(email, password)
+      # Check if user actually exists
+      # If so, set the session using *** IF STATEMENT ASSIGNMENTS ***
+      # 28-33. if it returns "truthy" you should end up with a local variable called "user"
+      # 28-33. if no user is found, it will return Nil and redirect to "/login"
+      user = User.find_by(:email => email)
+      if user && user.authenticate(password)
+        session[:email] = user.email
+      else
+        redirect "/login"
+      end
+    end
+
+    def current_user
+      @current_user ||= User.find_by(:email => session[:email]) if session[:email]
+      end
     end
 
     def logout!
