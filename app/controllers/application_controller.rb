@@ -42,6 +42,4 @@ class ApplicationController < Sinatra::Base
       session.clear
     end
 
-  end
-
 end
