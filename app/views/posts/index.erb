@@ -1,11 +1,11 @@
 <h2>All Travel Destinations</h2>
 
-<!-- add content here -->
 <% @posts.each do |post| %>
   <h3><a href="/posts/<%= post.id %>">
       <%= post.name %></a>, visited in <%= post.year_visited %>
   </h3>
 <% end %>
+<a class="button" href="/">Home</a>
 <a class="button" href="/posts/new">New Post</a>
 <a class="button" href="/posts/:id/edit">Edit Post</a>
-<a class="button" href="/">Home</a>
+<a class="button" href="/logout">Logout</a>
