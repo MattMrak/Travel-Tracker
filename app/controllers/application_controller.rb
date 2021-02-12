@@ -42,4 +42,12 @@ class ApplicationController < Sinatra::Base
       session.clear
     end
 
+    def name
+      @name = post.name
+    end
+
+    def year_visited
+      @year_visited = post.year_visited
+    end
+
 end

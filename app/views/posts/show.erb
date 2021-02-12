@@ -1,0 +1,13 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Year Visited</th>
+  </tr>
+  <tr>
+    <td><%= @post.name %></td>
+    <td><%= @post.year_visited %></td>
+  </tr>
+<table>
+
+<a class="button" href="/posts/<%= @post.id %>/edit">Edit Travel Destination</a>
+<a class="button" href="/posts">Travel Destinations</a>

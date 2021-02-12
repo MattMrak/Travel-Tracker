@@ -1,0 +1,16 @@
+<h2>Edit Travel Destination</h2>
+
+<form action="/posts/<%= @post.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <p><label for="post">Post: </label>
+    <input type="text" id="name" name="post[name]"
+    value="<%= @post.name %>"></p>
+  <p><label for="post_year_visited">Year Visited: </label>
+    <input type="text" id="year_visited" name="post[year_visited]"
+    value="<%= @post.year_visited %>"></p>
+  <p><input type="submit" value="Edit Post"></p>
+</form>
+
+
+<a class="button" href="/posts">Posts</a>
+<a class="button" href="/">Home</a>
