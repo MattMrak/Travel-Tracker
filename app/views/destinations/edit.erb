@@ -1,0 +1,12 @@
+<h1>Editing: <%= @destination.location %></h1>
+
+<form method="POST" action="/destinations/<%= @destination.id %>">
+  <input type="hidden" name="_method" value="PUT">
+
+  <label for="location_field">Location</label>
+  <input type="text" name="destination[location]" value="<%= @destination.location %>">
+  <label for="date_visited_field">Date Visited</label>
+  <input type="text" name="destination[date_visited]" value="<%= @destination.date_visited %>">
+
+  <input type="submit" value="Submit!">
+</form>

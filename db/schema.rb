@@ -12,9 +12,9 @@
 
 ActiveRecord::Schema.define(version: 3) do
 
-  create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.text "content"
+  create_table "destinations", force: :cascade do |t|
+    t.string "location"
+    t.string "date_visited"
     t.integer "user_id"
   end
 

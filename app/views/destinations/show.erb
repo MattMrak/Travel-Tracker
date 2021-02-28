@@ -1,0 +1,10 @@
+<h1><%= @destination.location %></h1>
+<p>
+  Date Visited: <%= @destination.date_visited %>
+</p>
+<a href="/destinations/<%= @destination.id %>/edit">Edit |</a>
+<a href="/destinations">All Destinations</a>
+<form method="POST" action="/destinations/<%= @destination.id %>">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete This Destination">
+</form>

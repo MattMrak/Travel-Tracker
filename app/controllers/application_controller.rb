@@ -5,6 +5,8 @@ class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
+    #line below tells our application to look for the _method key in params
+    set :method_override, true
     enable :sessions
     set :session_secret, "travel_destinations"
   end
@@ -12,7 +14,6 @@ class ApplicationController < Sinatra::Base
   get "/" do
     erb :welcome
   end
-
 
   helpers do
 
@@ -40,14 +41,6 @@ class ApplicationController < Sinatra::Base
 
     def logout!
       session.clear
-    end
-
-    def name
-      @name = post.name
-    end
-
-    def year_visited
-      @year_visited = post.year_visited
     end
 
 end
