@@ -1,16 +1,27 @@
-<h1>Signup</h1>
-
-<form action="/users" method="POST">
-
-    <p>
-        <label for="email">Email:</label>
-        <input type="text" name="email" id="email">
-    </p>
-    <p>
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password">
-    </p>
-
-    <input type="submit">
-
-</form>
+<html>
+  <head>
+    <style>
+      * {
+        text-align: center;
+      }
+      h1, label {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #4682B4;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Signup</h1>
+    <form action="/users" method="POST">
+        <p>
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email">
+        </p>
+        <p>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+        </p>
+        <input type="submit">
+    </form>
+  </body>
+</html>

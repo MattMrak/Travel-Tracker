@@ -1,10 +1,23 @@
-<h1>Add A New Destination</h1>
-
-<form method="POST" action="/destinations">
-  <label for="location_field">Location</label>
-  <input type="text" name="location">
-  <label for="date_visited_field">Date Visited</label>
-  <input type="text" name="date_visited">
-  
-  <input type="submit" value="Submit!">
-</form>
+<html>
+  <head>
+    <style>
+      * {
+        text-align: center;
+      }
+      h1, label {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #4682B4;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>New Destination</h1>
+    <form method="POST" action="/destinations">
+      <label for="location_field">Location</label>
+      <input type="text" name="location">
+      <label for="date_visited_field">Date Visited</label>
+      <input type="text" name="date_visited">
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>

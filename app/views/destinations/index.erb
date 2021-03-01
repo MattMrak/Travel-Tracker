@@ -1,15 +1,28 @@
-<h1>All Destinations</h1>
-
-<ol>
-  <% @destinations.each do |destination| %>
-    <li>
-      <strong>
-        <a href="/destinations/<%= destination.id %>"><%= destination.location %></a>
-      </strong> | <%= destination.date_visited %>
-    </li>
-  <% end %>
-</ol>
-
+<html>
+  <head>
+    <style>
+      * {
+        text-align: center;
+      }
+      h1, ol {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #4682B4;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Destinations</h1>
+    <ol>
+      <% @destinations.each do |destination| %>
+      <li>
+        <strong>
+          <a href="/destinations/<%= destination.id %>"><%= destination.location %></a>
+        </strong> | <%= destination.date_visited %>
+      </li>
+      <% end %>
+    </ol>
+  </body>
+</html>
 <a href="/">Home |</a>
 <a href="/destinations/new">New Destination |</a>
 <a href="/logout">Logout</a>

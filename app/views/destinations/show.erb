@@ -1,10 +1,25 @@
-<h1><%= @destination.location %></h1>
-<p>
-  Date Visited: <%= @destination.date_visited %>
-</p>
-<a href="/destinations/<%= @destination.id %>/edit">Edit |</a>
-<a href="/destinations">All Destinations</a>
-<form method="POST" action="/destinations/<%= @destination.id %>">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete This Destination">
-</form>
+<html>
+  <head>
+    <style>
+      * {
+        text-align: center;
+      }
+      h1, p {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #4682B4;
+      }
+    </style>
+  </head>
+  <body>
+    <h1><%= @destination.location %></h1>
+    <p>
+      Date Visited | <%= @destination.date_visited %>
+    </p>
+    <a href="/destinations/<%= @destination.id %>/edit">Edit |</a>
+    <a href="/destinations">Destinations</a>
+    <form method="POST" action="/destinations/<%= @destination.id %>">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Delete This Destination">
+    </form>
+  </body>
+</html>
