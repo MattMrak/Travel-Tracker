@@ -35,7 +35,6 @@
   </head>
   <body>
     <h1>Editing | <%= @destination.location %></h1>
-    <p>
     <form method="POST" action="/destinations/<%= @destination.id %>">
       <input type="hidden" name="_method" value="PUT">
       <label for="location_field">Location</label>
@@ -44,9 +43,9 @@
       <input type="text" name="destination[date_visited]" value="<%= @destination.date_visited %>">
       <input type="submit" value="Submit">
     </form>
-    </p>
   </body>
 </html>
+<br>
 <ul>
   <li><a href="/destinations/<%= @destination.id %>">Go Back</a></li>
 </ul>
