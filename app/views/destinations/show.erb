@@ -39,8 +39,8 @@
       Date Visited | <%= @destination.date_visited %>
     </p>
     <ul>
-      <li><a href="/destinations/<%= @destination.id %>/edit">Edit</a></li>
       <li><a href="/destinations">Destinations</a></li>
+      <li><a href="/destinations/<%= @destination.id %>/edit">Edit</a></li>
       <li><p><form method="POST" action="/destinations/<%= @destination.id %>">
         <input type="hidden" name="_method" value="DELETE">
         <input type="submit" value="Delete This Destination">

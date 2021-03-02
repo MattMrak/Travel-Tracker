@@ -17,10 +17,10 @@ class DestinationsController < ApplicationController
   end
 
   post "/destinations" do
-    #model, create a new destination
-    @destination = Destination.create(params)
-    #response?
-    redirect "/destinations/#{@destination.id}"
+      #model, create a new destination
+      @destination = Destination.create(params)
+      #response?
+      redirect "/destinations/#{@destination.id}"
   end
 
   #to show a single destination
@@ -43,13 +43,13 @@ class DestinationsController < ApplicationController
   end
 
   put "/destinations/:id" do
-    #find the instance of the destination
-    destination = Destination.find(params[:id])
-    #perform an update on the instance using params
-    #make sure it saves
-    destination.update(params[:destination])
-    #response?
-    redirect "/destinations/#{destination.id}"
+      #find the instance of the destination
+      destination = Destination.find(params[:id])
+      #perform an update on the instance using params
+      #make sure it saves
+      destination.update(params[:destination])
+      #response?
+      redirect "/destinations/#{destination.id}"
   end
 
   delete "/destinations/:id" do
@@ -64,4 +64,8 @@ class DestinationsController < ApplicationController
     end
   end
 
+  get "/destinations/" do
+    redirect "/destinations"
+  end
+  
 end
