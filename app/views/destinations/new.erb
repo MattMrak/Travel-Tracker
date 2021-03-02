@@ -5,13 +5,37 @@
         text-align: center;
       }
       h1, label {
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-family: Georgia, serif;
         color: #4682B4;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #4682B4;
+      }
+      li {
+        float: left;
+      }
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      li a:hover {
+        background-color: #2F4F4F;
+      }
+      .active {
+        background-color: #4CAF50;
       }
     </style>
   </head>
   <body>
     <h1>New Destination</h1>
+    <p>
     <form method="POST" action="/destinations">
       <label for="location_field">Location</label>
       <input type="text" name="location">
@@ -19,5 +43,9 @@
       <input type="text" name="date_visited">
       <input type="submit" value="Submit">
     </form>
+    </p>
   </body>
 </html>
+<ul>
+  <li><a href="/destinations">Go Back</a></li>
+</ul>

@@ -5,8 +5,31 @@
         text-align: center;
       }
       .container {
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-family: Georgia, serif;
         color: #4682B4;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #4682B4;
+      }
+      li {
+        float: left;
+      }
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      li a:hover {
+        background-color: #2F4F4F;
+      }
+      .active {
+        background-color: #4CAF50;
       }
     </style>
   </head>
@@ -25,6 +48,8 @@
     </div>
   </body>
 </html>
-<a class="button" href="/signup">Signup |</a>
-<a class="button" href="/login">Login |</a>
-<a class="button" href="/destinations">Destinations</a>
+<ul>
+  <li><a class="button" href="/signup">Signup</a></li>
+  <li><a class="button" href="/login">Login</a></li>
+  <li><a class="button" href="/destinations">Destinations</a></li>
+</ul>

@@ -5,8 +5,31 @@
         text-align: center;
       }
       h1, p {
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-family: Georgia, serif;
         color: #4682B4;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #4682B4;
+      }
+      li {
+        float: left;
+      }
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      li a:hover {
+        background-color: #2F4F4F;
+      }
+      .active {
+        background-color: #4CAF50;
       }
     </style>
   </head>
@@ -15,11 +38,13 @@
     <p>
       Date Visited | <%= @destination.date_visited %>
     </p>
-    <a href="/destinations/<%= @destination.id %>/edit">Edit |</a>
-    <a href="/destinations">Destinations</a>
-    <form method="POST" action="/destinations/<%= @destination.id %>">
-      <input type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="Delete This Destination">
-    </form>
+    <ul>
+      <li><a href="/destinations/<%= @destination.id %>/edit">Edit</a></li>
+      <li><a href="/destinations">Destinations</a></li>
+      <li><p><form method="POST" action="/destinations/<%= @destination.id %>">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete This Destination">
+      </form></p></li>
+    </ul>
   </body>
 </html>
