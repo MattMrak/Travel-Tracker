@@ -1,78 +1,26 @@
-<!--<html>
-  <head>
-    <style>
-      * {
-        text-align: center;
-      }
-      h1, p {
-        font-family: Georgia, serif;
-        color: #4682B4;
-      }
-      ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #4682B4;
-      }
-      li {
-        float: left;
-      }
-      li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
-      li a:hover {
-        background-color: #2F4F4F;
-      }
-      .active {
-        background-color: #4CAF50;
-      }
-    </style>
-  </head>
-  <body>
-    <h1><%= @destination.location %></h1>
-    <p>
-      Date Visited | <%= @destination.date_visited %>
-    </p>
-    <ul>
-      <li><a href="/destinations">Destinations</a></li>
-      <li><a href="/destinations/<%= @destination.id %>/edit">Edit</a></li>
-      <li><br><form method="POST" action="/destinations/<%= @destination.id %>">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Delete This Destination">
-      </form></li>
-    </ul>
-  </body>
-</html>-->
-
-
-
-
-<h1>Location: <%=@destination.location%></h1>
-<h3>Date Visited: <%= @destination.date_visited %></h3>
-<h3>Created By: <a href="/users/<%= @destination.user_id %>"><%= @destination.user.email %></a></h3>
-<br>
-<% if @destination.user == current_user %>
-  <div class="btn-group">
-    <form action="/destinations/<%= @destination.id %>/edit" method="GET">
-    <button class="btn btn-primary btn-lg" type="submit">Edit Destination</button>
-    </form>
-  </div>
+<html>
+  <h1>Location | <%=@destination.location%></h1>
+  <h3>Date Visited | <%= @destination.date_visited %></h3>
+  <h3>Created By | <a href="/users/<%= @destination.user_id %>"><%= @destination.user.email.capitalize %></a></h3>
   <br>
-  <div class="btn-group">
-    <form action="/destinations/<%= @destination.id %>/delete" method="POST">
-      <input id="hidden" type="hidden" name="_method" value="DELETE">
-      <button class="btn btn-danger btn-lg" type="submit">Delete Destination</button>
-    </form>
-  </div>
-  <br>
-  <div class="btn-group">
-    <form action="/destinations/new" method="GET">
-      <button class="btn btn-success btn-lg" type="submit">Add New Destination</button>
-    </form>
-  </div>
-<% end %>
+  <% if @destination.user == current_user %>
+    <div class="btn-group">
+      <form action="/destinations/<%= @destination.id %>/edit" method="GET">
+      <button class="btn btn-primary btn-lg" type="submit">Edit Destination</button>
+      </form>
+    </div>
+    <br>
+    <div class="btn-group">
+      <form action="/destinations/<%= @destination.id %>/delete" method="POST">
+        <input id="hidden" type="hidden" name="_method" value="DELETE">
+        <button class="btn btn-danger btn-lg" type="submit">Delete Destination</button>
+      </form>
+    </div>
+    <br>
+    <div class="btn-group">
+      <form action="/destinations/new" method="GET">
+        <button class="btn btn-success btn-lg" type="submit">New Destination</button>
+      </form>
+    </div>
+  <% end %>
+</html>

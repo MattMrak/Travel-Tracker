@@ -1,73 +1,20 @@
 <html>
-  <head>
-    <style>
-      * {
-        text-align: center;
-      }
-      h1, label {
-        font-family: Georgia, serif;
-        color: #4682B4;
-      }
-      ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #4682B4;
-      }
-      li {
-        float: left;
-      }
-      li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
-      li a:hover {
-        background-color: #2F4F4F;
-      }
-      .active {
-        background-color: #4CAF50;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Login</h1>
-    <form action="/login" method="POST">
-        <p>
-            <label for="email">Email</label>
-            <input type="text" name="email" id="email">
-        </p>
-        <p>
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password">
-        </p>
-        <input type="submit">
-    </form>
-  </body>
+  <h1>Login</h1><br>
+  <% if !!@error %>
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      <strong>Error! </strong> <%= @error %>
+    </div>
+  <% end %>
+  <form action="/login" method="POST">
+    <p>
+      <label for="email">Email</label>
+      <input type="text" name="email" id="email">
+    </p>
+    <p>
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password">
+    </p>
+    <button type="submit" class="btn btn-sm btn-danger">Login</button>
+  </form>
 </html>
-<br>
-<ul>
-  <li><a href="/">Home</a></li>
-  <li><a class="button" href="/signup">Signup</a></li>
-</ul>
-
-
-
-
-<!--<h3>Log In</h3><br>
-
-<% if !!@error %>
-  <div class="alert">
-    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-    <strong>Error!</strong> <%= @error %>
-  </div>
-<% end %>
-
-<form action='/login' method="POST">
-  <input type="text" name="email" placeholder="email">
-  <input type="password" name="password" placeholder="password">
-  <button class="btn btn-primary d-inline" type="submit">Log in</button>
-</form>-->

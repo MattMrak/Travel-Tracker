@@ -1,110 +1,49 @@
-<!--<html>
-  <head>
-    <style align: center>
-      * {
-        text-align: center;
-      }
-      h1, p, ol {
-        font-family: Georgia, serif;
-        color: #4682B4;
-      }
-      ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #4682B4;
-      }
-      li {
-        float: left;
-      }
-      li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
-      li a:hover {
-        background-color: #2F4F4F;
-      }
-      .active {
-        background-color: #4CAF50;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Destinations</h1>
-    <p>
-      <% @destinations.each do |destination| %>
-        <ol>
-          <strong>
-            <a href="/destinations/<%= destination.id %>"><%= destination.location %></a>
-          </strong> | <%= destination.date_visited %>
-        </ol>
-        <% end %>
-    </p>
-  </body>
-</html>
-<ul>
-  <li><a href="/">Home</a></li>
-  <li><a href="/destinations/new">New Destination</a></li>
-  <li><a href="/logout">Logout</a></li>
-</ul>-->
-
-
-
-<h1>Welcome, <%= @user.email %>!</h1>
-
-
-<form action="/destinations/new" method="GET">
-  <button class="btn btn-outline-primary btn-lg" type="submit">Add New Destination</button>
-</form>
-
-
-<h3>All Destination</h3>
-<% if @destinations.empty? %>
-  <p>There are no existing destinations</p>
-<% else %>
-
-  <table class="table table-bordered table-striped table-hover">
-    <thead class="thead-dark">
-      <th>Email</th>
-      <th>Location</th>
-      <th>Date Visited</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </thead>
-    <tbody>
-      <% @destinations.each do |destination| %>
-        <tr>
-          <td><h5><a href="/users/<%= destination.user_id %>"><%= destination.user.email %></a></h5></td>
-          <td><%= destination.location %></td>
-          <td><%= destination.date_visited %></td>
-          <form action="/destinations/<%= destination.id %>" method="get">
-            <td><button class="btn btn-info btn-sm" type="submit">See Details</button></td>
-          </form>
-
-          <% if destination.user == current_user %>
+<html>
+  <h1>Welcome, <%= @user.email.capitalize %>!</h1>
+  <form action="/destinations/new" method="GET">
+    <button class="btn btn-outline-primary btn-lg" type="submit">New Destination</button>
+  </form>
+  <h3>All Destinations</h3>
+    <% if @destinations.empty? %>
+    <p>No existing destinations</p>
+    <% else %>
+    <table class="table table-bordered table-striped table-hover">
+      <thead class="thead-dark">
+        <th>Email |</th>
+        <th>Location |</th>
+        <th>Date Visited</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </thead>
+      <tbody>
+        <% @destinations.each do |destination| %>
+          <tr>
+            <td><h5><a href="/users/<%= destination.user_id %>"><%= destination.user.email %></a></h5></td>
+            <td><%= destination.location %></td>
+            <td><%= destination.date_visited %></td>
+            <form action="/destinations/<%= destination.id %>" method="get">
+              <td><button class="btn btn-info btn-sm" type="submit">See Details</button></td>
+            </form>
+            <% if destination.user == current_user %>
             <form action="/destinations/<%= destination.id %>/edit" method="GET">
-               <td>
+              <td>
                 <button class="btn btn-primary btn-sm" type="submit">Edit Destination</button>
               </td>
             </form>
-
             <form action="/destinations/<%= destination.id %>/delete" method="POST">
               <input id="hidden" type="hidden" name="_method" value="DELETE">
               <td>
                 <button type="submit" class="btn btn-sm btn-danger">Delete Destination</button>
               </td>
             </form>
-          <% else %>
-            <td></td>
-            <td></td>
-          <% end %>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
+            <% else %>
+              <td></td>
+              <td></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</html>

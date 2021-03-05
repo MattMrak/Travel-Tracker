@@ -1,72 +1,16 @@
-<!--<html>
-  <head>
-    <style>
-      * {
-        text-align: center;
-      }
-      h1, label {
-        font-family: Georgia, serif;
-        color: #4682B4;
-      }
-      ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #4682B4;
-      }
-      li {
-        float: left;
-      }
-      li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
-      li a:hover {
-        background-color: #2F4F4F;
-      }
-      .active {
-        background-color: #4CAF50;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>New Destination</h1>
-    <form method="POST" action="/destinations">
-      <label for="location_field">Location</label>
-      <input type="text" name="location">
-      <label for="date_visited_field">Date Visited</label>
-      <input type="text" name="date_visited">
-      <input type="submit" value="Submit">
-    </form>
-  </body>
+<html>
+  <h2>New Destination</h2><br>
+  <% if @error %>
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      <strong>Error! </strong> Please enter valid data.
+    </div>
+  <% end %>
+  <form action="/destinations" method="POST">
+    <label>Location </label>
+    <input type="text" name="destination[location]"required><br><br>
+    <label>Date Visited </label>
+    <input type="date" name="destination[date_visited]"required><br><br>
+    <button class="btn btn-lg btn-success" type="submit">Add Destination</button><br>
+  </form>
 </html>
-<br>
-<ul>
-  <li><a href="/destinations">Go Back</a></li>
-</ul>-->
-
-
-
-<h2>Create a New Destination</h2><br>
-
-<% if @error %>
-  <div class="alert">
-    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-    <strong>Error!</strong> Data invalid. Please enter a valid entry.
-  </div>
-<% end %>
-
-
-<form action="/destinations" method="POST">
-  
-  <label>Location: </label>
-  <input type="text" name="destination[location]"required><br><br>
-  
-  <label>Date Visited: </label>
-  <input type="date" name="destination[date_visited]"required><br><br>
-  <button class="btn btn-lg btn-success" type="submit">Add Destination</button><br>
-</form>
