@@ -34,39 +34,40 @@
     </style>
   </head>
   <body>
-    <h1>New Destination</h1>
-    <form method="POST" action="/destinations">
-      <label for="location_field">Location</label>
-      <input type="text" name="location">
-      <label for="date_visited_field">Date Visited</label>
-      <input type="text" name="date_visited">
-      <input type="submit" value="Submit">
+    <h1>Signup</h1>
+    <form action="/signup" method="POST">
+        <p>
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email">
+        </p>
+        <p>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+        </p>
+        <input type="submit">
     </form>
   </body>
 </html>
 <br>
 <ul>
-  <li><a href="/destinations">Go Back</a></li>
+  <li><a href="/">Home</a></li>
+  <li><a class="button" href="/login">Login</a></li>
 </ul>
 
 
 
-<!--<h2>Create a New Destination</h2><br>
 
-<% if @error %>
+<!--<h3>Sign up as a new user</h3><br>
+
+<% if !!@error %>
   <div class="alert">
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-    <strong>Error!</strong> Data invalid. Please enter a valid entry.
+    <strong>Error!</strong> <%= @error %>
   </div>
 <% end %>
 
-
-<form action="/destinations" method="POST">
-  
-  <label>Location: </label>
-  <input type="text" name="destination[location]"required><br><br>
-  
-  <label>Date Visited: </label>
-  <input type="date" name="destination[date_visited]"required><br><br>
-  <button class="btn btn-lg btn-success" type="submit">Add Destination</button><br>
+<form action="/signup" method="POST">
+  <input type="text" name="email" placeholder="email">
+  <input type="password" name="password" placeholder="password">
+  <button class="btn btn-primary d-inline" type="submit">Sign Up</button>
 </form>-->

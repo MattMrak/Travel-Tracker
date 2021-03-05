@@ -1,0 +1,54 @@
+<h1> <%= @user.email %>'s Destinations</h1>
+
+<% if current_user == @user %>
+  <form action="/destinations/new" method="GET">
+    <button class="btn btn-outline-primary btn-lg" type="submit">Add New Destination</button>
+  </form>
+<% end %>
+
+<h3>All Destinations:</h3>
+<% if @destinations.empty? %>
+  <p>Looks like <%= @user.email %> doesn't have any destinations!</p>
+<% else %>
+  <table class="table table-bordered table-striped table-hover">
+    <thead class="thead-dark">
+      <th>Location</th>
+      <th>Date Visited</th>
+      <th></th>
+      <% if current_user == @user %>
+        <th></th>
+        <th></th>
+      <% end %>
+    </thead>
+    <tbody>
+
+    <% @destinations.each do |destination| %>
+      <tr>
+        <td><%= destination.location %></td>
+        <td><%= destination.date_visited %></td>
+        <form action="/destinations/<%= destination.id %>" method="get">
+            <td><button class="btn btn-info btn-sm" type="submit">See Details</button></td>
+          </form>
+
+          <% if destination.user == current_user %>
+            <form action="/destinations/<%= destination.id %>/edit" method="GET">
+               <td>
+                <button class="btn btn-primary btn-sm" type="submit">Edit Destination</button>
+              </td>
+            </form>
+
+            <form action="/destinations/<%= destination.id %>/delete" method="POST">
+              <input id="hidden" type="hidden" name="_method" value="DELETE">
+              <td>
+                <button type="submit" class="btn btn-sm btn-danger">Delete Destination</button>
+              </td>
+            </form>
+          <% else %>
+            <td class="d-none"></td>
+            <td class="d-none"></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

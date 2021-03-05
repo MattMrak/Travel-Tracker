@@ -34,39 +34,18 @@
     </style>
   </head>
   <body>
-    <h1>New Destination</h1>
-    <form method="POST" action="/destinations">
+    <h1>Editing | <%= @destination.location %></h1>
+    <form method="POST" action="/destinations/<%= @destination.id %>">
+      <input type="hidden" name="_method" value="PUT">
       <label for="location_field">Location</label>
-      <input type="text" name="location">
+      <input type="text" name="destination[location]" value="<%= @destination.location %>">
       <label for="date_visited_field">Date Visited</label>
-      <input type="text" name="date_visited">
+      <input type="text" name="destination[date_visited]" value="<%= @destination.date_visited %>">
       <input type="submit" value="Submit">
     </form>
   </body>
 </html>
 <br>
 <ul>
-  <li><a href="/destinations">Go Back</a></li>
+  <li><a href="/destinations/<%= @destination.id %>">Go Back</a></li>
 </ul>
-
-
-
-<!--<h2>Create a New Destination</h2><br>
-
-<% if @error %>
-  <div class="alert">
-    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-    <strong>Error!</strong> Data invalid. Please enter a valid entry.
-  </div>
-<% end %>
-
-
-<form action="/destinations" method="POST">
-  
-  <label>Location: </label>
-  <input type="text" name="destination[location]"required><br><br>
-  
-  <label>Date Visited: </label>
-  <input type="date" name="destination[date_visited]"required><br><br>
-  <button class="btn btn-lg btn-success" type="submit">Add Destination</button><br>
-</form>-->

@@ -1,8 +1,7 @@
 class Destination < ActiveRecord::Base
-    
+
+    belongs_to :user
     validates :location, presence: true
     validates :date_visited, presence: true
-    
-    belongs_to :user
 
 end

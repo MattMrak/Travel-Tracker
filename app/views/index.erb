@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <style>
+      * {
+        text-align: center;
+      }
+      .container {
+        font-family: Georgia, serif;
+        color: #4682B4;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #4682B4;
+      }
+      li {
+        float: left;
+      }
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      li a:hover {
+        background-color: #2F4F4F;
+      }
+      .active {
+        background-color: #4CAF50;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-md-8 col-md-offset-2">
+        <h1>Travel Tracker</h1>
+        <img src="https://i.pinimg.com/originals/23/d6/06/23d60600fccbf902800c36273b69263e.jpg" alt="Travel Tracker Logo">
+          <div class="content">
+            <p>Welcome to the Travel Tracker! 
+            The goal of this website application is to keep track of all the destinations you have visited. 
+            Signup to create an account, then login and get started!
+            </p>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
+<ul>
+  <li><a class="button" href="/signup">Signup</a></li>
+  <li><a class="button" href="/login">Login</a></li>
+  <li><a class="button" href="/destinations">Destinations</a></li>
+</ul>
+
+
+
+<!--<div class="container">
+  <h1>Travel Tracker</h1>
+    <img src="https://i.pinimg.com/originals/23/d6/06/23d60600fccbf902800c36273b69263e.jpg" alt="Travel Tracker Logo">
+</div>
+<div class="content">
+  <p>Welcome to the Travel Tracker! 
+     The goal of this website application is to keep track of all the destinations you have visited. 
+     Signup to create an account, then login and get started!
+  </p>
+</div>
+
+<% if !logged_in? %>
+  <div class="btn-group" style="padding-right: 5px; text-align: center">
+    <form action="/login" method="get">
+      <button class="btn btn-lg btn-primary" type="submit">Log in</button>
+    </form>
+  </div>
+  <br>
+  <div class="btn-group" style="text-align: center">
+    <form action="/signup" method="get">
+      <button class="btn btn-lg btn-primary" type="submit">Sign Up</button>
+    </form>
+  </div>
+<% end %>-->
