@@ -18,20 +18,20 @@ class DestinationsController < ApplicationController
 
   post '/destinations' do
     destination = current_user.destinations.new(params[:destination])
-    # if destination.location.empty? || destination.date_visited.empty?
-    #   @error = "Data invalid. Please fill out both fields."
-    #   # destination_attr
-    #   erb :"/destinations/new"
-    # else
+    if destination.location.empty? || destination.date_visited.empty?
+      @error = "Data invalid. Please fill out both fields."
+      # destination_attr
+      erb :"/destinations/new"
+    else
       # persist problem object to db
-     destination.save
+      if destination.save
         #take user to problem show page
-        redirect "/destinations"
-    #   else
-    #     #re-render the form
-    #     redirect '/destinations/new'
-    #   end
-    # end
+        redirect "/destinations/#{destination.id}"
+      else
+        #re-render the form
+        redirect '/destinations/new'
+      end
+    end
   end
 
   # READ - Show Action (one destination)
