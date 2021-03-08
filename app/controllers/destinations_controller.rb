@@ -15,7 +15,6 @@ class DestinationsController < ApplicationController
   post '/destinations' do
     destination = current_user.destinations.new(params[:destination])
     if destination.location.empty? || destination.date_visited.empty?
-      @error = "Data invalid. Please fill out both fields."
       erb :"/destinations/new"
     else
       if destination.save

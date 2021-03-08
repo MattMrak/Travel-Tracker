@@ -1,10 +1,7 @@
 <html>
   <h1>Signup</h1><br>
   <% if !!@error %>
-    <div class="alert">
-      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-      <strong>Error!</strong> <%= @error %>
-    </div>
+    <strong>Error!</strong> <%= @error %>
   <% end %>
   <form action="/signup" method="POST">
     <p>
@@ -15,6 +12,6 @@
       <label for="password">Password</label>
       <input type="password" name="password" id="password">
     </p>
-    <button type="submit" class="btn btn-sm btn-danger">Signup</button>
+    <button type="submit">Signup</button>
   </form>
 </html>

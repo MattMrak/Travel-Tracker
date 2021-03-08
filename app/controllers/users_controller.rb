@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     post '/signup' do
       user = User.new(params) 
       if !user.email || !user.password
-        @error = "Please enter a email and password!"
+        @error = "Please enter an email and password!"
         erb :'/users/new'
       elsif User.find_by(email: user.email)
         @error = "This email is already in use, please use a different email."

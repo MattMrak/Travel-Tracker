@@ -2,15 +2,15 @@
   <h1> <%= @user.email.capitalize %>'s Destinations</h1>
   <% if current_user == @user %>
     <form action="/destinations/new" method="GET">
-      <button class="btn btn-outline-primary btn-lg" type="submit">New Destination</button>
+      <button type="submit">New Destination</button>
     </form>
   <% end %>
   <h3>All Destinations </h3>
   <% if @destinations.empty? %>
-    <p><%= @user.email %> doesn't have any destinations yet!</p>
+    <p><%= @user.email.capitalize %> doesn't have any destinations yet!</p>
   <% else %>
-    <table class="table table-bordered table-striped table-hover">
-      <thead class="thead-dark">
+    <table>
+      <thead>
         <th>Location |</th>
         <th>Date Visited </th>
         <th></th>
@@ -25,23 +25,23 @@
           <td><%= destination.location %></td>
           <td><%= destination.date_visited %></td>
           <form action="/destinations/<%= destination.id %>" method="get">
-              <td><button class="btn btn-info btn-sm" type="submit">See Details</button></td>
+              <td><button type="submit">See Details</button></td>
             </form>
             <% if destination.user == current_user %>
               <form action="/destinations/<%= destination.id %>/edit" method="GET">
                 <td>
-                  <button class="btn btn-primary btn-sm" type="submit">Edit Destination</button>
+                  <button type="submit">Edit Destination</button>
                 </td>
               </form>
               <form action="/destinations/<%= destination.id %>/delete" method="POST">
                 <input id="hidden" type="hidden" name="_method" value="DELETE">
                 <td>
-                  <button type="submit" class="btn btn-sm btn-danger">Delete Destination</button>
+                  <button type="submit">Delete Destination</button>
                 </td>
               </form>
             <% else %>
-              <td class="d-none"></td>
-              <td class="d-none"></td>
+              <td></td>
+              <td></td>
             <% end %>
           </tr>
         <% end %>

@@ -2,7 +2,6 @@
   <form action="/destinations/<%= @destination.id %>" method="POST">
     <input id="hidden" type="hidden" name="_method" value="patch">
     <h1>Original Destination</h1>
-    <h4>Destination id | <%=@destination.id%></h4>
     <h4>Location | <%= @destination.location %></h4>
     <h4>Date Visited | <%= @destination.date_visited %></h4>
     <h1> Edit Destination</h1><br>
@@ -10,6 +9,6 @@
     <input type="text" name="destination[location]" value="<%= @destination.location %>"><br><br>
     <label>Date Visited </label>
     <input type="date" name="destination[date_visited]" value="<%= @destination.date_visited %>"><br><br>
-    <button class="btn btn-lg btn-info" type="submit">Edit Destination</button><br>
+    <button type="submit">Edit Destination</button><br>
   </form>
 </html>
