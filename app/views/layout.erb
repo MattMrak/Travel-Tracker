@@ -33,6 +33,16 @@
     </style>
   </head>
   <body>
+<ul>
+  <% if !logged_in? %>
+  <li><a href="/signup">Signup</a></li>
+  <li><a href="/login">Login</a></li>
+  <% else %>
+  <li><a href="/">Home</a></li>
+  <li><a href="/destinations">Destinations</a></li>
+  <li><a href="/logout">Logout</a></li>
+  <% end %>
+</ul>
     <div class="wrapper">
       <%= yield %>
       <footer class="branding">
@@ -41,10 +51,3 @@
     </div>
   </body>
 </html>
-<ul>
-  <li><a href="/signup">Signup</a></li>
-  <li><a href="/login">Login</a></li>
-  <li><a href="/logout">Logout</a></li>
-  <li><a href="/">Home</a></li>
-  <li><a href="/destinations">Destinations</a></li>
-</ul>

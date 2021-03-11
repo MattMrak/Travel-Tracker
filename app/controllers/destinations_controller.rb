@@ -41,8 +41,12 @@ class DestinationsController < ApplicationController
   patch "/destinations/:id" do
     @destination = Destination.find(params[:id])
     if params[:destination].include?("location" || "date_visited")
-      @destination.update(params[:destination])
+      # if @destination && @destination.update(params[:destination])
       redirect "/destinations/#{@destination.id}"
+      # else 
+      #     @error = true
+      #     erb :"/destinations/edit"
+      # end
     else
       @error = true
       erb :"/destinations/edit"

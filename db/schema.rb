@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 3) do
+ActiveRecord::Schema.define(version: 4) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "destination_id"
+    t.text "body"
+    t.index ["destination_id"], name: "index_comments_on_destination_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "destinations", force: :cascade do |t|
     t.string "location"
@@ -23,4 +31,6 @@ ActiveRecord::Schema.define(version: 3) do
     t.string "password_digest"
   end
 
+  add_foreign_key "comments", "destinations", on_delete: :cascade
+  add_foreign_key "comments", "users", on_delete: :cascade
 end
