@@ -31,7 +31,6 @@ class DestinationsController < ApplicationController
     erb :"destinations/show"
   end
   post "/destinations/:id/posts" do
-    
     redirect '/login' if !logged_in?
     comment = current_user.comments.build(body: params[:comment][:body], destination_id: params[:id])
     if comment.save
@@ -40,8 +39,6 @@ class DestinationsController < ApplicationController
       # flash[:error] = destination.errors.full_messages.to_sentence
       redirect "/destinations/#{params[:id]}"
     end
-
-
   end
 
   get "/destinations/:id/edit" do
