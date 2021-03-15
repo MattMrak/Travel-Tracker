@@ -1,4 +1,4 @@
-<html>
+
   <h1>Location | <%=@destination.location%></h1>
   <h3>Date Visited | <%= @destination.date_visited %></h3>
   <h3>Created By | <a href="/users/<%= @destination.user_id %>"><%= @destination.user.email.capitalize %></a></h3>
@@ -21,6 +21,15 @@
       <form action="/destinations/new" method="GET">
         <button type="submit">New Destination</button>
       </form>
-    </div>
+      
+    </div><br><br>
+      <form action="/destinations/<%= @destination.id %>/posts" method="POST">
+       <label>Comment </label>
+    <input type="text" name="comment[body]"required>
+        <button type="submit">Add Comment</button>
+      </form>
+      <h3>Comments </h3>
+      <% @destination.comments.each do |c| %>
+      <%= c.body %>
   <% end %>
-</html>
+  <% end %>

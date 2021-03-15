@@ -4,5 +4,6 @@ class Destination < ActiveRecord::Base
     validates :date_visited, presence: true
 
     belongs_to :user
+    has_many :comments
 
 end

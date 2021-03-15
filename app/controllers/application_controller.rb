@@ -21,11 +21,13 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-      User.find_by(id: session[:user_id])
-      end
+      # memoization
+      @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+     
     end
 
     def logout!
       session.clear
     end 
+  end
 end
